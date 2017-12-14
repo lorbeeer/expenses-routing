@@ -1,0 +1,105 @@
+<h1 class="text-center">{{ctgId > -1? 'Edit category' : 'Create new category'}}</h1>
+
+<div class="bg-{{ctgForm.value.color}} rounded-circle mb-3" style="width:5rem;">
+  <h1 class="text-white text-center p-3"><span class="{{ctgForm.value.logo}}"></span></h1>
+</div>
+
+<form [formGroup]="ctgForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" id="name" formControlName="name"
+    [class.is-invalid]="!ctgForm.controls.name.valid && ctgForm.controls.name.touched"
+    [class.is-valid]="ctgForm.controls.name.valid && ctgForm.controls.name.touched">
+  </div>
+  
+    <fieldset class="form-group">
+        <legend class="col-form-legend">Color</legend>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" formControlName="color"  value="primary" >
+          <span class="fa fa-square text-primary"></span> Blue
+        </label>
+      </div>
+        
+      <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" formControlName="color"  value="info" >
+            <span class="fa fa-square text-info"></span> Turquoise
+          </label>
+        </div>
+      <div class="form-check form-check-inline ">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" formControlName="color"  value="warning">
+          <span class="fa fa-square text-warning"></span> Yellow
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" formControlName="color"  value="danger" >
+          <span class="fa fa-square text-danger"></span> Red
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" formControlName="color"  value="success" >
+          <span class="fa fa-square text-success"></span> Green
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" formControlName="color"  value="secondary" >
+          <span class="fa fa-square text-secondary"></span> Grey
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" formControlName="color"  value="dark" >
+          <span class="fa fa-square text-dark"></span> Black
+        </label>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <legend class="col-form-legend">Logo</legend>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" formControlName="logo"  value="fa fa-plane" >
+            <span class="fa fa-plane "></span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" formControlName="logo"  value="fa fa-home" >
+            <span class="fa fa-home "></span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" formControlName="logo"  value="fa fa-car" >
+            <span class="fa fa-car "></span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" formControlName="logo"  value="fa fa-cutlery" >
+            <span class="fa fa-cutlery "></span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" formControlName="logo"  value="fa fa-glass" >
+            <span class="fa fa-glass"></span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" formControlName="logo"  value="fa fa-medkit" >
+            <span class="fa fa-medkit "></span>
+          </label>
+        </div>
+    </fieldset>
+  
+    <button type="submit" class="btn btn-success" [disabled]="!ctgForm.valid">Save</button>
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+  </form>
+
+
