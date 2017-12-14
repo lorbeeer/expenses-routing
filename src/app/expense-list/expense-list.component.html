@@ -1,0 +1,12 @@
+<h1 class="text-center">My Expenses</h1>
+<a class="btn btn-success mb-3" routerLink="/create/expense">Add new</a>
+<a class="btn btn-info mb-3" routerLink="/categories">Manage categories</a>
+<a class="btn btn-secondary mb-3" routerLink="/doughnut">Show Doughnut Chart</a>
+<ul class="pl-0 list-group" [ngStyle]="{'list-style':'none'}">
+  <a *ngFor="let e of expenses" class="list-group-item" [routerLink]="['/expense', e.id]">
+    <app-expense [expense]="e"></app-expense>
+  </a>
+  <li class="list-group-item">
+    <p class="mb-0 font-weight-bold text-muted text-right">Total: -{{ totalAmount }}$</p>
+  </li>
+</ul>
